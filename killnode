@@ -1,0 +1,13 @@
+#!/bin/sh
+
+for i in {8080..8090}
+do
+id=`lsof -i:$i | grep -v "PID" | grep "node" | awk '{print $2}' | uniq`
+if [ $id ];
+then
+    kill -9 $id
+fi
+done
+
+echo '***Node process between 8080 ... 8090 have been killed !***'
+
