@@ -1,0 +1,11 @@
+#!/bin/sh
+
+touch TEMP_FILE
+line=$(cat TEMP_FILE |wc -l)
+
+while ! $1 >> TEMP_FILE ; 
+do sleep 2 ; 
+done ; 
+echo  "\033[42;30mSUCEED!\033[0m"
+line=$(cat TEMP_FILE |wc -l)
+rm -rf TEMP_FILE
