@@ -1,5 +1,6 @@
 #!/bin/sh
 
+trap 'rm -rf "TEMP_FILE"' EXIT
 touch TEMP_FILE
 line=$(cat TEMP_FILE |wc -l)
 
@@ -8,4 +9,3 @@ do sleep 2 ;
 done ; 
 echo  "\033[42;30mSUCEED!\033[0m"
 line=$(cat TEMP_FILE |wc -l)
-rm -rf TEMP_FILE
